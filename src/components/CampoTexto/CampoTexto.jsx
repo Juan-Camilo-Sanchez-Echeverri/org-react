@@ -1,12 +1,22 @@
 import './CampoTexto.css';
 
-const CampoTexto = ({ label, placeholder }) => {
-	const placeholderModificado = `${placeholder}...`;
+const CampoTexto = (props) => {
+	const placeholderModificado = `${props.placeholder}...`;
+
+	const manejarCambio = (e) => {
+		props.actualizarValor(e.target.value);
+	};
 
 	return (
 		<div className="campo-texto">
-			<label htmlFor="">{label}</label>
-			<input type="text" placeholder={placeholderModificado} />
+			<label htmlFor="">{props.label}</label>
+			<input
+				type="text"
+				placeholder={placeholderModificado}
+				required={props.required}
+				value={props.valor}
+				onChange={manejarCambio}
+			/>
 		</div>
 	);
 };
