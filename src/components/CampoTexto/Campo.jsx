@@ -1,6 +1,6 @@
-import './CampoTexto.css';
+import './Campo.css';
 
-const CampoTexto = (props) => {
+const Campo = (props) => {
 	const placeholderModificado = `${props.placeholder}...`;
 
 	const manejarCambio = (e) => {
@@ -8,10 +8,10 @@ const CampoTexto = (props) => {
 	};
 
 	return (
-		<div className="campo-texto">
+		<div className={`campo campo-${props.type}`}>
 			<label htmlFor="">{props.label}</label>
 			<input
-				type="text"
+				type={props.type}
 				placeholder={placeholderModificado}
 				required={props.required}
 				value={props.valor}
@@ -21,4 +21,4 @@ const CampoTexto = (props) => {
 	);
 };
 
-export default CampoTexto;
+export default Campo;
